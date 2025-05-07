@@ -44,14 +44,47 @@ html {
 body {
   font-size: 1.6rem;
   line-height: 1.5;
-  height: 100vh;
-  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 main {
   flex: 1;
+}
+
+.card {
+  background-color: white;
+}
+
+.card-img {
+  aspect-ratio: 2 / 1;
+  margon-bottom: var(--space-6);
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card hr {
+}
+
+.card-body {
+  padding: var(--space-5);
+}
+
+.card-body > * + * {
+  margin-top: var(--space-5);
+}
+
+.card :is(h1, h2, caption) {
+  margin-bottom: var(--space-4);
 }
