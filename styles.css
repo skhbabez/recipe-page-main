@@ -10,12 +10,14 @@
   font-family: "Outfit";
   src: url("./assets/fonts/outfit/Outfit-VariableFont_wght.ttf");
   font-weight: 400 700;
+  font-style: normal;
 }
 
 @font-face {
   font-family: "Young Serif";
   src: url("./assets/fonts/young-serif/YoungSerif-Regular.ttf");
   font-weight: 400;
+  font-style: normal;
 }
 
 html {
@@ -64,7 +66,7 @@ main {
 
 .card-img {
   aspect-ratio: 2 / 1;
-  margon-bottom: var(--space-6);
+  margin-bottom: var(--space-6);
 }
 
 .card-img img {
@@ -76,6 +78,7 @@ main {
 
 .card-body {
   padding: var(--space-5);
+  padding-top: 0px;
   font-family: "Outfit", sans-serif;
   color: var(--stone-600);
 }
@@ -108,39 +111,60 @@ strong {
   font-weight: 700;
 }
 
-.preparation {
+.card .preparation {
   padding: var(--space-4);
   background-color: var(--rose-50);
 }
 
-.preparation h2 {
+.card .preparation h2 {
   color: var(--rose-800);
   font-family: "Outfit", sans-serif;
   font-size: 2rem;
   font-weight: 700;
 }
 
-ul {
+.card :is(ul, ol) {
   list-style: none;
-  padding: 0px;
+  padding-left: var(--space-1);
 }
 
-ul li {
+.card :is(ul, ol) li {
   display: flex;
-  align-items: center;
   gap: var(--space-4);
 }
 
-ul li::before {
+.card ul li {
+  align-items: center;
+}
+
+.card ul li::before {
   content: "";
-  margin-left: var(--space-1);
-  background-color: var(--rose-800);
   width: 4px;
   height: 4px;
   border-radius: 50%;
+  background-color: var(--brown-800);
   flex-shrink: 0;
 }
 
-li + li {
+.card ol {
+  counter-reset: instructions 0;
+}
+
+.card ol li {
+  counter-increment: instructions 1;
+}
+
+.card ol li::before {
+  content: counter(instructions, decimal) ".";
+  color: var(--brown-800);
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+.card .preparation ul li:before {
+  background-color: var(--rose-800);
+}
+
+.card li + li {
   margin-top: var(--space-1);
 }
