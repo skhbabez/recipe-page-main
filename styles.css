@@ -168,3 +168,43 @@ strong {
 .card li + li {
   margin-top: var(--space-1);
 }
+
+.nutrition-table {
+  width: 100%;
+  text-align: start;
+  border-collapse: collapse;
+}
+
+.nutrition-table caption {
+  text-align: start;
+}
+
+.nutrition-table :is(th, td) {
+  text-align: start;
+}
+
+.nutrition-table td {
+  font-weight: 700;
+  color: var(--brown-800);
+  padding-right: var(--space-5);
+}
+.nutrition-table th {
+  padding-block: var(--space-2);
+  padding-right: var(--space-3);
+  padding-left: var(--space-5);
+  font-weight: 400;
+}
+
+.nutrition-table tbody tr:first-child :is(th, td) {
+  padding-top: 0px;
+  vertical-align: top;
+}
+
+.nutrition-table tbody tr:last-child :is(th, td) {
+  padding-bottom: 0px;
+  vertical-align: bottom;
+}
+
+.nutrition-table tr + tr {
+  border-top: 1px solid var(--stone-150);
+}
