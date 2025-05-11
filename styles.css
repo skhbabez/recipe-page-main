@@ -21,7 +21,7 @@
 }
 
 html {
-  font-size: 65%;
+  font-size: 62.5%;
 }
 
 :root {
@@ -58,6 +58,10 @@ body {
 
 main {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .card {
@@ -207,4 +211,32 @@ strong {
 
 .nutrition-table tr + tr {
   border-top: 1px solid var(--stone-150);
+}
+
+@media (min-width: 768px) {
+  .card {
+    width: clamp(61.6rem, 80vw, 73.6rem);
+    border-radius: 24px;
+  }
+
+  .card-body {
+    padding: var(--space-6);
+  }
+
+  .card-img {
+    padding-inline: var(--space-6);
+    padding-top: var(--space-6);
+  }
+  .card-img img {
+    border-radius: 12px;
+  }
+
+  body {
+    padding: var(--space-8) var(--space-5);
+    background-color: var(--stone-100);
+  }
+
+  .card h1 {
+    font-size: 4rem;
+  }
 }
