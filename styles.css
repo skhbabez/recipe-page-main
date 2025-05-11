@@ -221,6 +221,7 @@ strong {
 
   .card-body {
     padding: var(--space-6);
+    padding-top: 0;
   }
 
   .card-img {
