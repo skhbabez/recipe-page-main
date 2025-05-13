@@ -146,7 +146,7 @@ hr {
 
 .card :is(ul, ol) li {
   display: flex;
-  gap: var(--space-4);
+  gap: var(--space-3);
 }
 
 .card ul li {
