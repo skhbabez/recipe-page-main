@@ -1,89 +1,104 @@
-# Frontend Mentor - Recipe page
+# Frontend Mentor - Recipe page solution
 
-![Design preview for the Recipe page coding challenge](./preview.jpg)
+This is a solution to the [Recipe page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/recipe-page-KiTsR8QQKm). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this front-end coding challenge.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+**Note: Delete this note and update the table of contents based on what sections you keep.**
 
-**To do this challenge, you need a basic understanding of HTML and CSS.**
+## Overview
 
-## The challenge
+### Screenshot
 
-Your challenge is to build out this recipe page and get it looking as close to the design as possible.
+![](./screenshot.jpg)
 
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+### Links
 
-Want some support on the challenge? [Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+- Solution URL: [https://github.com/skhbabez/recipe-page-main](https://github.com/skhbabez/recipe-page-main)
+- Live Site URL: [https://skhbabez.github.io/recipe-page-main/](https://skhbabez.github.io/recipe-page-main/)
 
-## Where to find everything
+## My process
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+### Built with
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+- Semantic HTML5 markup
+- CSS
+- Flexbox
+- Mobile-first workflow
 
-If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+### What I learned
 
-All the required assets for this project are in the `/assets` folder. The images are already exported for the correct screen size and optimized.
+I put additional effort into making the markup semantic, trying to utilize not only semantic elements, but also thinking more about the structure and avoiding unnecessary divs.
 
-We also include variable and static font files for the required fonts for this project. You can choose to either link to Google Fonts or use the local font files to host the fonts yourself. Note that we've removed the static font files for the font weights that aren't needed for this project.
+I refreshed my knowledge on CSS element selectors, using them to get more control on styling the lists according to the Figma file. While using `::marker `would have probably been enough, I tried to challenge myself using `::before` and counter to get a better idea for how they work. It was especially interesting to see how much control you have over list stylings this way. I will probably explore further options to do this in the future, figuring out how to simplify this. In this snippet I tried to center the text around the bullet points.
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+```css
+.card :is(ul, ol) li {
+  display: flex;
+  gap: var(--space-4);
+}
 
-## Building your project
+.card ul li {
+  align-items: center;
+}
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+.card ul li::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--brown-800);
+  flex-shrink: 0;
+}
+```
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+Styling the image was also quite tricky, and I learned how to utilize a wrapper div to get more control over the image. This was necessary due to the aspect-ratio property in combination with `object-fit: cover` leaving a white space below the image.
 
-## Deploying your project
+```css
+.card-img {
+  aspect-ratio: 2 / 1;
+  margin-bottom: var(--space-6);
+}
 
-As mentioned above, there are many ways to host your project for free. Our recommend hosts are:
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+```
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+Styling the table was challenging in regards to getting the spacings right. I experimented with the `border-collapse` property and got a better understanding of how this interacts with the `border-spacin`g property. This also got me to use the dev tools more to check what CSS is actually applied, which allowed me to figure out I needed to set the `vertical-align` property. It was also fun to experiment with the child selector and find a use for them that felt meaningful.
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+```css
+.nutrition-table tbody tr:first-child :is(th, td) {
+  padding-top: 0px;
+  vertical-align: top;
+}
 
-## Create a custom `README.md`
+.nutrition-table tbody tr:last-child :is(th, td) {
+  padding-bottom: 0px;
+  vertical-align: bottom;
+}
+```
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+Lastly, I tried to organize my CSS better, using a spacing system and trying to focus more on `rem` values when appropriate.
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+### Continued development
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+I will look deeper into using relational units like `em` and `rem`. I feel like I still lack a good feel for when to use them. I will also try to deepen my knowledge in regards to better class design. Currently, I overuse selectors where I could probably use classes. I will try a different approach in my next project, maybe utilizing a class approach like in Bootstrap. Otherwise, I will focus on refreshing my knowledge in CSS and HTML in general.
 
-## Submitting your solution
+### Useful resources
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
-
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
-
-## Sharing your solution
-
-There are multiple places you can share your solution:
-
-1. Share your solution page in the **#finished-projects** channel of our [community](https://www.frontendmentor.io/community). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
-
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
-
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
-
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
+- [https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Structuring_documents](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Structuring_documents) - This was a good read helping me to plan and structure the html for this project.
+- [https://flexboxfroggy.com/](https://flexboxfroggy.com/) - Wonderful little game. I had some problems understanding the difference between align-content and align-items and this wonderful little game cleared this up.
