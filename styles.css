@@ -24,6 +24,13 @@ html {
   font-size: 62.5%;
 }
 
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   --rose-800: #7a284e;
   --rose-50: #fff7fb;
@@ -52,8 +59,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0;
-  padding: 0;
 }
 
 main {
@@ -109,10 +114,16 @@ main {
   line-height: 1;
   font-family: "Young Serif", sans-serif;
   font-weight: 400;
+  line-height: 1;
 }
 
 strong {
   font-weight: 700;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--stone-150);
 }
 
 .card .preparation {
