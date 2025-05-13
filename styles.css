@@ -69,7 +69,7 @@ main {
 }
 
 .card-img {
-  aspect-ratio: 2 / 1;
+  aspect-ratio: 2.2;
   margin-bottom: var(--space-6);
 }
 
@@ -227,9 +227,12 @@ strong {
   .card-img {
     padding-inline: var(--space-6);
     padding-top: var(--space-6);
+
+    aspect-ratio: none;
   }
   .card-img img {
     border-radius: 12px;
+    height: 30rem;
   }
 
   body {
