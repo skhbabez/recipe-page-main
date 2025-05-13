@@ -146,7 +146,8 @@ hr {
 
 .card :is(ul, ol) li {
   display: flex;
-  gap: var(--space-3);
+  gap: var(--space-4);
+  gap: 2.8rem;
 }
 
 .card ul li {
@@ -175,6 +176,7 @@ hr {
   color: var(--brown-800);
   flex-shrink: 0;
   font-weight: 700;
+  width: 4px;
 }
 
 .card .preparation ul li:before {
