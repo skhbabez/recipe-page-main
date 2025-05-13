@@ -136,6 +136,7 @@ hr {
   font-family: "Outfit", sans-serif;
   font-size: 2rem;
   font-weight: 700;
+  margin-bottom: var(--space-3);
 }
 
 .card :is(ul, ol) {
@@ -188,6 +189,7 @@ hr {
   width: 100%;
   text-align: start;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
 .nutrition-table caption {
