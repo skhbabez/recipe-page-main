@@ -129,13 +129,14 @@ hr {
 .card .preparation {
   padding: var(--space-4);
   background-color: var(--rose-50);
+  border-radius: 12px;
 }
 
 .card .preparation h2 {
   color: var(--rose-800);
   font-family: "Outfit", sans-serif;
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: var(--space-3);
 }
 
